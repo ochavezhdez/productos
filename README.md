@@ -3,8 +3,8 @@ Es un API Reest que nos permite guardar productos alimenticios que encontraremos
 
 # Modelo de datos
 Tabla product
-*name:         almacena el nombre del producto.                Cadena
-*description:  almacena la descripción del producto.           Cadena
+* name:         almacena el nombre del producto.                Cadena
+* description:  almacena la descripción del producto.           Cadena
 
 Tabla market
 name:         almacena el nombre del mercado.                 Cadena
