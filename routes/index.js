@@ -15,33 +15,35 @@ router.get('/', function(req, res, next) {
 });
 
 router.route('/market')
-	.post(upload.array(), marketCtrl.addMarket)					// Adiciona un nuevo mercado.
+	.post(upload.array(), marketCtrl.addMarket)							// Adiciona un nuevo mercado.
 
-	.get(marketCtrl.getMarkets);								// Obtiene un listado con la información de todos los mercados.
+	.get(marketCtrl.getMarkets);										// Obtiene un listado con la información de todos los mercados.
 
 router.route('/market/:idm')
-	.get(marketCtrl.getMarketById)								// Obtiene la información del mercado marcado con idm.
+	.get(marketCtrl.getMarketById)										// Obtiene la información del mercado marcado con idm.
 
-	.put(upload.array(), marketCtrl.updateMarketById)			// Actualiza la información del mercado marcado con idm.
+	.put(upload.array(), marketCtrl.updateMarketById)					// Actualiza la información del mercado marcado con idm.
 
-	.delete(marketCtrl.deleteMarketById);						// Elimina el mercado marcado con idm y todos los productos asociados a él.
+	.delete(marketCtrl.deleteMarketById);								// Elimina el mercado marcado con idm y todos los productos asociados a él.
 
 router.route('/product')
-	.post(upload.array(), productCtrl.addProduct)				// Adiciona un nuevo producto.
+	.post(upload.array(), productCtrl.addProduct)						// Adiciona un nuevo producto.
 
-	.get(productCtrl.getProducts);								// Obtiene un listado con la información de todos los productos.
+	.get(productCtrl.getProducts);										// Obtiene un listado con la información de todos los productos.
 
 router.route('/product/:idp')
-	.get(productCtrl.getProductById)							// Obtiene la información del producto marcado con idp.
+	.get(productCtrl.getProductById)									// Obtiene la información del producto marcado con idp.
 
-	.put(upload.array(), productCtrl.updateProductById);		// Actualiza la información del producto marcado con idp.
+	.put(upload.array(), productCtrl.updateProductById);				// Actualiza la información del producto marcado con idp.
 
 router.route('/market/:idm/product/:idp')
-	.post(upload.array(), marketProductCtrl.addProductToMarket)	// Adiciona un producto a un mercado.
+	.post(upload.array(), marketProductCtrl.addProductToMarket)			// Adiciona un producto a un mercado.
 
-	.delete(marketProductCtrl.deleteProductFromMarket);			// Elimina del mercado marcado con idm el producto asociado con idp.
+	.put(upload.array(), marketProductCtrl.updateProductFromMarket);	// Actualiza la información de un producto en un mercado.
+
+	.delete(marketProductCtrl.deleteProductFromMarket);					// Elimina del mercado marcado con idm el producto asociado con idp.
 
 router.route('/marketProduct')
-	.get(marketProductCtrl.getProducts);						// Permite hacer consultas a la tabla marketProduct.
+	.get(marketProductCtrl.getProducts);								// Elimina del mercado marcado con idm el producto asociado con idp.
 
 module.exports = router;
