@@ -31,6 +31,25 @@ exports.addProductToMarket = function(req, res, next) {
 	});
 };
 
+exports.updateProductFromMarket = function(req, res, next) {
+	var marketProduct = new marketProductModel({
+		product: req.params.idp,
+		market: req.params.idm,
+		price: req.body.price
+	});
+
+	marketProductModel.update({product: req.params.idp, market: req.params.idm}, 
+		{
+			marketProduct
+		}, { multi: true }, function (err, numAffected) {
+			if (err) {
+				return res.status(500, err.message);
+			}
+			res.status(200).jsonp(marketProduct);
+		}
+	);
+};
+
 exports.deleteProductFromMarket = function(req, res, next) {
 	marketProductModel.remove({market: req.params.idm, product: req.params.idp}, function(err, marketProduct) {
 		if (err) {
