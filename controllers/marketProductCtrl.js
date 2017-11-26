@@ -32,20 +32,35 @@ exports.addProductToMarket = function(req, res, next) {
 };
 
 exports.updateProductFromMarket = function(req, res, next) {
-	var marketProduct = new marketProductModel({
-		product: req.params.idp,
-		market: req.params.idm,
-		price: req.body.price
-	});
-
 	marketProductModel.update({product: req.params.idp, market: req.params.idm}, 
 		{
-			marketProduct
+			product: req.params.idp,
+			market: req.params.idm,
+			price: req.body.price
 		}, { multi: true }, function (err, numAffected) {
 			if (err) {
 				return res.status(500, err.message);
 			}
-			res.status(200).jsonp(marketProduct);
+
+			marketProductModel.find(function(err, marketProduct) {
+				if (err) {
+					return res.status(500, err.message);
+				}
+
+				marketModel.populate(marketProduct, {path: "market"}, function(err, marketProduct) {
+					if (err) {
+						return res.status(500, err.message);
+					}
+
+					productModel.populate(marketProduct, {path: "product"}, function(err, marketProduct) {
+						if (err) {
+							return res.status(500, err.message);
+						}
+
+						res.status(200).jsonp(marketProduct);
+					});
+				});
+			});
 		}
 	);
 };

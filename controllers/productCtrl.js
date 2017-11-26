@@ -11,6 +11,7 @@ exports.addProduct = function(req, res, next) {
 		if (err) {
 			return res.status(500, err.message);
 		}
+		
 		res.status(200).jsonp(product);		
 	});
 };
@@ -30,24 +31,28 @@ exports.getProductById = function(req, res, next) {
 		if (err) {
 			return res.status(500, err.message);
 		}
+
 		res.status(200).jsonp(product);
 	});
 };
 
 exports.updateProductById = function(req, res, next) {
-	var product = new productModel({
-		name: req.body.name,
-		description: req.body.description
-	});
-
 	productModel.update({_id: req.params.idp}, 
 		{
-			product
+			name: req.body.name,
+			description: req.body.description
 		}, { multi: true }, function (err, numAffected) {
 			if (err) {
 				return res.status(500, err.message);
 			}
-			res.status(200).jsonp(product);
+
+			productModel.find({_id: req.params.idp}, function(err, product) {
+				if (err) {
+					return res.status(500, err.message);
+				}
+
+				res.status(200).jsonp(product);
+			});
 		}
 	);
 };
