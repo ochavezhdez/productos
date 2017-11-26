@@ -39,7 +39,7 @@ router.route('/product/:idp')
 router.route('/market/:idm/product/:idp')
 	.post(upload.array(), marketProductCtrl.addProductToMarket)			// Adiciona un producto a un mercado.
 
-	.put(upload.array(), marketProductCtrl.updateProductFromMarket);	// Actualiza la información de un producto en un mercado.
+	.put(upload.array(), marketProductCtrl.updateProductFromMarket)		// Actualiza la información de un producto en un mercado.
 
 	.delete(marketProductCtrl.deleteProductFromMarket);					// Elimina del mercado marcado con idm el producto asociado con idp.
 
