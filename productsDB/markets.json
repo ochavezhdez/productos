@@ -1,0 +1,4 @@
+{"_id":{"$oid":"5a1afcae0f273f1bb8de569f"},"name":"Mercado Soriana Gastelum","addres":"Gastélum S/N, Zona Centro, 22800 Ensenada, B.C.","latitude":31.8687719,"longitude":-116.62315,"__v":0}
+{"_id":{"$oid":"5a1aff7c33d05a12bce7c84d"},"name":"Mercado Mayorista","addres":"Gastélum 555, Zona Centro, 22800 Ensenada, B.C.","latitude":31.8654983,"longitude":-116.6258001,"__v":0}
+{"_id":{"$oid":"5a1affd133d05a12bce7c84e"},"name":"El Florido","addres":"Blancarte, Zona Centro, 22800 Ensenada, B.C.","latitude":31.8648291,"longitude":-116.6195297,"__v":0}
+{"_id":{"$oid":"5a1b002b33d05a12bce7c84f"},"name":"Calimax","addres":"943, Avenida 20 de Noviembre 943, Zona Centro, 22800 Ensenada, B.C.","latitude":31.8744321,"longitude":-116.6282999,"__v":0}
