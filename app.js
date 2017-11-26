@@ -12,7 +12,7 @@ var app = express();
 
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/books', function(err, res) {
+mongoose.connect('mongodb://localhost/products', function(err, res) {
 	if (err) {
 		throw err;
 	}

@@ -43,7 +43,7 @@ exports.updateMarketById = function(req, res, next) {
 			addres: req.body.addres,
 			latitude: req.body.latitude,
 			longitude: req.body.longitude
-		});
+	});
 
 	marketModel.update({_id: req.params.idm}, 
 		{

@@ -93,3 +93,13 @@ exports.getProducts = function(req, res, next) {
 		});
 	});
 };
+
+exports.deleteProductById = function(req, res, next) {
+	marketProductModel.remove({_id: req.params.idm}, function(err, marketProduct) {
+		if (err) {
+			return res.status(500, err.message);
+		}
+		
+		res.status(200).jsonp(marketProduct);
+	});
+};

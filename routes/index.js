@@ -46,4 +46,7 @@ router.route('/market/:idm/product/:idp')
 router.route('/marketProduct')
 	.get(marketProductCtrl.getProducts);								// Elimina del mercado marcado con idm el producto asociado con idp.
 
+router.route('/marketProduct/:id')
+	.delete(marketProductCtrl.deleteProductById);
+
 module.exports = router;
