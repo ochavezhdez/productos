@@ -42,7 +42,7 @@ exports.updateProductFromMarket = function(req, res, next) {
 				return res.status(500, err.message);
 			}
 
-			marketProductModel.find(function(err, marketProduct) {
+			marketProductModel.find({product: req.params.idp, market: req.params.idm}, function(err, marketProduct) {
 				if (err) {
 					return res.status(500, err.message);
 				}
